@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "indic-pii"
+version = "0.1.0"
+description = "Detect, validate and redact Indian identifiers (Aadhaar, PAN, GSTIN, IFSC, UPI, vehicle plates ...) with checksum validation. Zero dependencies."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Ashish Dhillon" }]
+keywords = ["pii", "aadhaar", "pan", "gstin", "india", "redaction", "privacy", "llm"]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest", "build", "twine"]
+
+[project.scripts]
+indic-pii = "indic_pii.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/ashishdhillon/indic-pii"
+
+[tool.setuptools]
+packages = ["indic_pii"]
