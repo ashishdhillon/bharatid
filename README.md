@@ -1,4 +1,4 @@
-# indic-pii
+# bharatid
 
 Detect, validate and redact **Indian identifiers** in text. Zero dependencies, pure Python 3.9+.
 Built for LLM guardrails, log scrubbing and data-loss prevention, where a bare regex for "12 digits"
@@ -16,17 +16,22 @@ or "5 letters, 4 digits, 1 letter" flags far too much.
 | Mobile | 10 digits starting 6-9, optional +91 / 0 | |
 | PIN code, bank account | **only with a cue word** ("PIN code", "A/c no") | bare 6- or 12-digit numbers are ignored |
 
+**Related project:** the PyPI package `indic-pii` (by a different author) also detects Indian PII, with
+confidence scores and optional spaCy NER for names. `bharatid` is a different design: zero
+dependencies, checksum-first validation (Aadhaar, GSTIN), and extra identifiers (GSTIN, TAN, vehicle
+plates). Pick whichever fits; they are not drop-in compatible.
+
 "Valid" means well-formed (and checksum-correct where a checksum exists). It does **not** mean the
 number was issued to anyone.
 
 ## Install and use
 
 ```bash
-pip install indic-pii
+pip install bharatid
 ```
 
 ```python
-from indic_pii import scan, redact, is_valid_aadhaar, is_valid_gstin
+from bharatid import scan, redact, is_valid_aadhaar, is_valid_gstin
 
 text = "Aadhaar 2345 6789 0124, PAN ABCPD1234E, call +91 98765 43210"
 for m in scan(text):
@@ -37,7 +42,7 @@ redact(text, types=["aadhaar"])
 is_valid_gstin("27AAPFU0939F1ZV")           # True
 ```
 
-CLI: `echo "PAN ABCPD1234E" | indic-pii scan` (exit code 1 when something is found), `indic-pii redact FILE`.
+CLI: `echo "PAN ABCPD1234E" | bharatid scan` (exit code 1 when something is found), `bharatid redact FILE`.
 
 ## How well does it avoid false alarms?
 

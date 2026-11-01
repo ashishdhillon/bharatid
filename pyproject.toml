@@ -3,7 +3,7 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "indic-pii"
+name = "bharatid"
 version = "0.1.0"
 description = "Detect, validate and redact Indian identifiers (Aadhaar, PAN, GSTIN, IFSC, UPI, vehicle plates ...) with checksum validation. Zero dependencies."
 readme = "README.md"
@@ -17,10 +17,10 @@ dependencies = []
 dev = ["pytest", "build", "twine"]
 
 [project.scripts]
-indic-pii = "indic_pii.cli:main"
+bharatid = "bharatid.cli:main"
 
 [project.urls]
-Homepage = "https://github.com/ashishdhillon/indic-pii"
+Homepage = "https://github.com/ashishdhillon/bharatid"
 
 [tool.setuptools]
-packages = ["indic_pii"]
+packages = ["bharatid"]

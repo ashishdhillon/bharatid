@@ -1,10 +1,10 @@
 import json
 import pytest
-from indic_pii import (ALL_TYPES, gstin_check_char, is_valid_aadhaar, is_valid_driving_licence,
+from bharatid import (ALL_TYPES, gstin_check_char, is_valid_aadhaar, is_valid_driving_licence,
                        is_valid_epic, is_valid_gstin, is_valid_ifsc, is_valid_pan, is_valid_passport,
                        is_valid_tan, is_valid_upi, is_valid_vehicle_plate, redact, scan,
                        verhoeff_check_digit)
-from indic_pii import cli
+from bharatid import cli
 
 
 def aadhaar(prefix="23456789012"):

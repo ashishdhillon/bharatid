@@ -1,7 +1,7 @@
 name: Publish to PyPI
 # Uses PyPI "trusted publishing" (no API token stored in GitHub).
 # One-time setup on pypi.org: Account -> Publishing -> add a pending publisher:
-#   project name: indic-pii | owner: ashishdhillon | repo: indic-pii | workflow: publish.yml | environment: pypi
+#   project name: bharatid | owner: ashishdhillon | repo: bharatid | workflow: publish.yml | environment: pypi
 on:
   release:
     types: [published]

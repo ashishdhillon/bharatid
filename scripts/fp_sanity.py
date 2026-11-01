@@ -1,7 +1,7 @@
 """How often does each detector fire on ordinary English prompts (which should contain few Indian IDs)?
 Usage: python -I scripts/fp_sanity.py CSV [CSV ...]   (public data: github.com/verazuo/jailbreak_llms)"""
 import collections, csv, json, sys
-from indic_pii import scan
+from bharatid import scan
 
 csv.field_size_limit(10 ** 8)
 texts = []
