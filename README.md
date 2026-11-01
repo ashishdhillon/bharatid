@@ -58,4 +58,10 @@ so this is a false-alarm sanity check, not a precision measurement. Reproduce wi
 - No names, addresses or free-text detection. Pair it with an NER tool if you need those.
 - Not legal advice or a compliance guarantee. Test on your own data.
 
+## Related projects
+
+- [guardkit](https://github.com/ashishdhillon/guardkit): offline guardrails for LLM apps (PII, secrets, injection),
+  with its own smaller PII guard and a PyPI release.
+- [injection-bench](https://github.com/ashishdhillon/injection-bench): benchmark harness for prompt-injection detectors.
+
 MIT licensed.
