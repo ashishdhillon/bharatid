@@ -44,6 +44,22 @@ is_valid_gstin("27AAPFU0939F1ZV")           # True
 
 CLI: `echo "PAN ABCPD1234E" | bharatid scan` (exit code 1 when something is found), `bharatid redact FILE`.
 
+## Use as a pre-commit hook
+
+Stop Aadhaar, GSTIN and PAN numbers from being committed by accident. In your `.pre-commit-config.yaml`:
+
+```yaml
+repos:
+  - repo: https://github.com/ashishdhillon/bharatid
+    rev: v0.1.1          # use the latest release tag
+    hooks:
+      - id: bharatid
+        # args: [--types, "aadhaar,gstin,pan,mobile"]   # optional
+```
+
+Findings are printed as `file:line: type ********4F` (masked, so logs never hold a full ID). Put `bharatid: ignore`
+on a line to allow it, e.g. fake test data. Default types are Aadhaar and GSTIN (checksum-validated) and PAN.
+
 ## How well does it avoid false alarms?
 
 On 15,140 real, mostly English LLM prompts (public in-the-wild jailbreak dataset, MIT licence), it

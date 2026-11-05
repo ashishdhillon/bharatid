@@ -1,0 +1,6 @@
+- id: bharatid
+  name: Block Indian identifiers (Aadhaar, GSTIN, PAN)
+  description: Fails the commit if staged text files contain checksum-validated Aadhaar/GSTIN or PAN numbers.
+  entry: bharatid-hook
+  language: python
+  types: [text]
